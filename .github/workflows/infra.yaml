@@ -33,7 +33,7 @@ jobs:
         timeout-minutes: 20
         run: |
           echo Deploying application
-          skaffold run -f=skaffold.yaml --default-repo=gcr.io/team-4-a
+          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT
       - name: get pods
         timeout-minutes: 20
         run: |
