@@ -1,12 +1,13 @@
-name: Build and push applicable
+name: Build terraform infra
 on:
   push:
-    branches:
-    - main
+    branches: [main]
 jobs:
-  setup-environment:
-    name: Skaffold
+  setup-build:
+    name: Terraform
     runs-on: ubuntu-latest
+
+    #use bash
     defaults:
       run:
         shell: bash
@@ -28,7 +29,7 @@ jobs:
         with:
           cluster_name: boutique-cluster
           location: europe-north1
-   
+
       # - name: Build + Deploy application to GKE
       #   timeout-minutes: 20
       #   run: |
