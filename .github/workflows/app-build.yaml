@@ -30,6 +30,12 @@ jobs:
           cluster_name: boutique-cluster
           location: europe-north1
 
+          #install skaffold
+      - name: Install skaffold
+        uses: daisaru11/setup-cd-tools@v1
+        with:
+          skaffold: '1.33.0'
+
       - name: Build + Deploy application to GKE
         timeout-minutes: 20
         run: |
