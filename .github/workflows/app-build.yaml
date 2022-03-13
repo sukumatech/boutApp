@@ -4,7 +4,7 @@ on:
     branches: [main]
 jobs:
   setup-build:
-    name: Terraform
+    name: skaffold
     runs-on: ubuntu-latest
 
     #use bash
@@ -18,12 +18,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
           workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
           service_account: ${{ secrets.SA_EMAIL }}
+
       - id: get-gke-credentials
         uses: google-github-actions/get-gke-credentials@v0.4.0
         with:
@@ -34,13 +36,20 @@ jobs:
       - name: Install skaffold
         uses: hiberbee/github-action-skaffold@1.12.0
         with:
-          skaffold: '1.16.1'
+          namespace: 'dev'
+
+      - name: Cache skaffold image builds & config
+        uses: actions/cache@v2
+        with:
+          path: ~/.skaffold/
+          key: fixed
 
       - name: Build + Deploy application to GKE
         timeout-minutes: 30
         run: |
           echo Deploying application
-          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT
+          skaffold config set --global local-cluster false
+          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT --namespace=dev
       - name: get pods
         timeout-minutes: 20
         run: |
