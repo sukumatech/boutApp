@@ -7,8 +7,6 @@ jobs:
   setup-environment:
     name: Skaffold
     runs-on: ubuntu-latest
-
-    #use bash
     defaults:
       run:
         shell: bash
