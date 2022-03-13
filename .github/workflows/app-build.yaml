@@ -34,7 +34,7 @@ jobs:
       - name: Install skaffold
         uses: daisaru11/setup-cd-tools@v1
         with:
-          skaffold: '1.33.0'
+          skaffold: '1.16.1'
 
       - name: Build + Deploy application to GKE
         timeout-minutes: 20
