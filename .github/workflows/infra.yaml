@@ -1,0 +1,42 @@
+name: Build and push applicable
+on:
+  push:
+    branches:
+    - main
+jobs:
+  setup-environment:
+    name: Skaffold
+    runs-on: ubuntu-latest
+
+    #use bash
+    defaults:
+      run:
+        shell: bash
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - id: 'auth'
+        name: 'Authenticate to Google Cloud'
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
+          service_account: ${{ secrets.SA_EMAIL }}
+      - id: get-gke-credentials
+        uses: google-github-actions/get-gke-credentials@v0.4.0
+        with:
+          cluster_name: boutique-cluster
+          location: europe-north1
+      
+      - name: Build + Deploy application to GKE
+        timeout-minutes: 20
+        run: |
+          echo Deploying application
+          skaffold run -f=skaffold.yaml --default-repo=gcr.io/team-4-a
+      - name: get pods
+        timeout-minutes: 20
+        run: |
+          kubectl get pods
