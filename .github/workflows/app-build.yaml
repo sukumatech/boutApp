@@ -1,4 +1,4 @@
-name: Build terraform infra
+name: Build Application
 on:
   push:
     branches: [main]
@@ -37,7 +37,7 @@ jobs:
           skaffold: '1.16.1'
 
       - name: Build + Deploy application to GKE
-        timeout-minutes: 20
+        timeout-minutes: 30
         run: |
           echo Deploying application
           skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT

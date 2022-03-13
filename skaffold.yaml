@@ -48,6 +48,7 @@ build:
     gitCommit: {}
   local:
     useBuildkit: false
+    concurrency: 0
 deploy:
   kubectl:
     manifests:
