@@ -32,7 +32,7 @@ jobs:
 
           #install skaffold
       - name: Install skaffold
-        uses: daisaru11/setup-cd-tools@v1
+        uses: hiberbee/github-action-skaffold@1.12.0
         with:
           skaffold: '1.16.1'
 
