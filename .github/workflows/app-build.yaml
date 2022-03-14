@@ -19,12 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cache skaffold image builds & config
-        uses: actions/cache@v2
-        with:
-          path: ~/.skaffold/
-          key: fixed
-
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
@@ -37,6 +31,13 @@ jobs:
         with:
           cluster_name: boutique-cluster
           location: europe-north1
+
+          #cache old images
+      - name: Cache skaffold image builds & config
+        uses: actions/cache@v2
+        with:
+          path: ~/.skaffold/
+          key: fixed
 
           #install skaffold
       - name: Install skaffold
@@ -54,4 +55,3 @@ jobs:
         timeout-minutes: 20
         run: |
           kubectl get pods --namespace=dev
-          
