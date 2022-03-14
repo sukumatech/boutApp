@@ -107,3 +107,4 @@ deploy:
   kubectl:
     manifests:
     - ./kubernetes-manifests/loadgenerator.yaml
+
