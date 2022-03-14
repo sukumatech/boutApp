@@ -19,10 +19,11 @@ metadata:
 build:
   tagPolicy:
     gitCommit: {}
-  local:
-    useBuildkit: false
+  googleCloudBuild:
+    projectId: team-4-a
+    #useBuildkit: false
     concurrency: 0
-    tryImportMissing: true
+    #tryImportMissing: true
   artifacts:
   # image tags are relative; to specify an image repo (e.g. GCR), you
   # must provide a "default repo" using one of the methods described
