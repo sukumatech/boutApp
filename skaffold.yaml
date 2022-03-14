@@ -17,6 +17,12 @@ kind: Config
 metadata:
   name: app
 build:
+  tagPolicy:
+    gitCommit: {}
+  local:
+    useBuildkit: false
+    concurrency: 0
+    tryImportMissing: true
   artifacts:
   # image tags are relative; to specify an image repo (e.g. GCR), you
   # must provide a "default repo" using one of the methods described
@@ -44,12 +50,7 @@ build:
     context: src/frontend
   - image: adservice
     context: src/adservice
-  tagPolicy:
-    inputDigest: {}
-  local:
-    useBuildkit: false
-    concurrency: 0
-    tryImportMissing: true
+  
 deploy:
   kubectl:
     manifests:
