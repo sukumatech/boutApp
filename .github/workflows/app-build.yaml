@@ -54,3 +54,4 @@ jobs:
         timeout-minutes: 20
         run: |
           kubectl get pods --namespace=dev
+          
