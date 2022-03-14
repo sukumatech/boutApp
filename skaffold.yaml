@@ -49,6 +49,7 @@ build:
   local:
     useBuildkit: false
     concurrency: 0
+    tryImportMissing: true
 deploy:
   kubectl:
     manifests:

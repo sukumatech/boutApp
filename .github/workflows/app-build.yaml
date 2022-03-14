@@ -19,6 +19,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache skaffold image builds & config
+        uses: actions/cache@v2
+        with:
+          path: ~/.skaffold/
+          key: fixed
+
       - id: 'auth'
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
@@ -38,12 +44,6 @@ jobs:
         with:
           namespace: 'dev'
 
-      - name: Cache skaffold image builds & config
-        uses: actions/cache@v2
-        with:
-          path: ~/.skaffold/
-          key: fixed
-
       - name: Build + Deploy application to GKE
         timeout-minutes: 30
         run: |
@@ -53,4 +53,4 @@ jobs:
       - name: get pods
         timeout-minutes: 20
         run: |
-          kubectl get pods
+          kubectl get pods --namespace=dev
