@@ -21,6 +21,7 @@ build:
     gitCommit: {}
   googleCloudBuild:
     projectId: team-4-a
+    machineType: N1_HIGHCPU_32
     #useBuildkit: false
     concurrency: 0
     #tryImportMissing: true
