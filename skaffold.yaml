@@ -45,7 +45,7 @@ build:
   - image: adservice
     context: src/adservice
   tagPolicy:
-    gitCommit: {}
+    inputDigest: {}
   local:
     useBuildkit: false
     concurrency: 0
