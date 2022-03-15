@@ -25,14 +25,14 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
-          workload_identity_provider: ${{ secrets.PROVIDER_NAME }}
-          service_account: ${{ secrets.SA_EMAIL }}
+          workload_identity_provider: projects/351068178296/locations/global/workloadIdentityPools/test-pool-1/providers/test-provider
+          service_account: github-test-1@team-3-a.iam.gserviceaccount.com
 
       - id: get-gke-credentials
         uses: google-github-actions/get-gke-credentials@v0.4.0
         with:
-          cluster_name: boutique-cluster
-          location: europe-north1
+          cluster_name: online-shop-cluster
+          location: us-central1
 
           #cache old images
       - name: Cache skaffold image builds & config
