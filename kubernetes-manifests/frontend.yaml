@@ -30,7 +30,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: gcr.io/team-3-a/frontend:{{ .Values.image }}
+          image: frontend
           ports:
           - containerPort: 8080
           readinessProbe:
