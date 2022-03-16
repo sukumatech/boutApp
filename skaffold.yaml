@@ -20,7 +20,7 @@ build:
   tagPolicy:
     gitCommit:
       variant: AbbrevTreeSha
-      prefix: BTQ
+#      prefix: BTQ
   local:
     tryImportMissing: true
     concurrency: 0
@@ -58,7 +58,8 @@ deploy:
     releases:
     - name: dev-chart
       chartPath: ./dev-chart
-#      namespace: dev
+      valuesFiles: [./dev-chart]
+      namespace: dev
       imageStrategy:
         helm: {}
 profiles:

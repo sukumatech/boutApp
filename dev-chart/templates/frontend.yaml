@@ -30,7 +30,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: frontend
+          image: {{ .Values.image_frontend.repository }}:{{ .Values.image_frontend.tag }}
           ports:
           - containerPort: 8080
           readinessProbe:

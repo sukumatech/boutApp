@@ -3,76 +3,63 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
-image:
-  repository: gcr.io/team-3-a
-  imagePullPolicy: IfNotPresent
+
+image_adservice:
+  repository: gcr.io/team-3-a/adservice
+  pullPolicy: IfNotPresent
+  #Overrides the image tag whose default is the chart appVersion.
+  tag: "${AbbrevTreeSha}"
+
+image_cartservice:
+  repository: gcr.io/team-3-a/cartservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v1.1"
+  tag: "${AbbrevTreeSha}"
 
-
-
-#image_adservice:
-  #repository: gcr.io/team-3-a/adservice
-  #pullPolicy: IfNotPresent
+image_checkout:
+  repository: gcr.io/team-3-a/checkoutservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_cartservice:
- # repository: gcr.io/team-3-a/cartservice
- # pullPolicy: IfNotPresent
+image_currency:
+  repository: gcr.io/team-3-a/currencyservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_checkout:
-  #repository: gcr.io/team-3-a/checkoutservice
-  #pullPolicy: IfNotPresent
+image_email:
+  repository: gcr.io/team-3-a/emailservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_currency:
-  #repository: gcr.io/team-3-a/currencyservice
-  #pullPolicy: IfNotPresent
+image_frontend:
+  repository: gcr.io/team-3-a/frontend
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_email:
-  #repository: gcr.io/team-3-a/emailservice
-  #pullPolicy: IfNotPresent
+image_payment:
+  repository: gcr.io/team-3-a/paymentservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_frontend:
-  #repository: gcr.io/team-3-a/frontend
-  #pullPolicy: IfNotPresent
+image_product:
+  repository: gcr.io/team-3-a/productcatalogservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  #tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_load:
-  #repository: gcr.io/team-3-a/loadgenerator
-  #pullPolicy: IfNotPresent
+image_recommendation:
+  repository: gcr.io/team-3-a/recommendationservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
+  tag: "${AbbrevTreeSha}"
 
-#image_payment:
-  #repository: gcr.io/team-3-a/paymentservice
-  #pullPolicy: IfNotPresent
+image_shippig:
+  repository: gcr.io/team-3-a/shippingservice
+  pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
-
-#image_product:
-  #repository: gcr.io/team-3-a/productcatalogservice
-  #pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
-
-#image_recommendation:
-  #repository: gcr.io/team-3-a/recommendationservice
-  #pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
- # tag: ""
-
-#image_shippig:
-  #repository: gcr.io/team-3-a/shippingservice
-  #pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  #tag: ""
+  tag: "${AbbrevTreeSha}"

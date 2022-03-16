@@ -28,7 +28,7 @@ spec:
       serviceAccountName: default
       containers:
         - name: server
-          image: checkoutservice
+          image: {{ .Values.image_checkout.repository }}:{{ .Values.image_checkout.tag }}
           ports:
           - containerPort: 5050
           readinessProbe:

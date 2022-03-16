@@ -29,7 +29,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: emailservice
+        image: {{ .Values.image_email.repository }}:{{ .Values.image_email.tag }}
         ports:
         - containerPort: 8080
         env:

@@ -28,7 +28,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: server
-        image: shippingservice
+        image: { .Values.image_shipping.repository }}:{{ .Values.image_shipping.tag }}
         ports:
         - containerPort: 50051
         env:
