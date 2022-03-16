@@ -4,6 +4,7 @@
 
 replicaCount: 1
 image:
+  repository: gcr.io/team-3-a
   imagePullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v1.1"
