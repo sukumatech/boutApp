@@ -97,6 +97,7 @@ spec:
     - boutique.team3.zakare.io
 
 ---
+#The New IP is reserved testing by adding the comment
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
