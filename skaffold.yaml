@@ -58,7 +58,7 @@ deploy:
     releases:
     - name: dev-chart
       chartPath: ./dev-chart
-      valuesFiles: [./dev-chart]
+      valuesFiles: [./dev-chart/values.yaml]
       namespace: dev
       imageStrategy:
         helm: {}
