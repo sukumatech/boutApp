@@ -58,7 +58,7 @@ deploy:
     releases:
     - name: dev-chart
       chartPath: ./dev-chart
-      namespace: dev
+#      namespace: dev
       imageStrategy:
         helm: {}
 profiles:
