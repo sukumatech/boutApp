@@ -91,7 +91,7 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: boutique-certificate
+  name: new-certificate
 spec:
   domains:
     - boutique.team3.zakare.io
