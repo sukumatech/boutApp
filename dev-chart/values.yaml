@@ -62,4 +62,4 @@ image_shippig:
   repository: gcr.io/team-3-a/shippingservice
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "${AbbrevTreeSha}"
+  tag: "${gitCommit}"
