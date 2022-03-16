@@ -101,7 +101,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend
+  name: boutique
   annotations:
     kubernetes.io/ingress.global-static-ip-name: dev-boutique-ipv4-public
     networking.gke.io/managed-certificates: boutique-certificate
