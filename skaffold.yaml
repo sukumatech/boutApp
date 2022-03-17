@@ -66,6 +66,7 @@ deploy:
     - ./kubernetes-manifests/productcatalogservice.yaml
     - ./kubernetes-manifests/recommendationservice.yaml
     - ./kubernetes-manifests/shippingservice.yaml
+    - ./kubernetes-manifests/backend-config.yaml
 profiles:
 # "gcb" profile allows building and pushing the images
 # on Google Container Builder without requiring docker
