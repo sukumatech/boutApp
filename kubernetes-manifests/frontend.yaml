@@ -91,19 +91,22 @@ spec:
 apiVersion: networking.gke.io/v1
 kind: ManagedCertificate
 metadata:
-  name: boutique-certificate
+  name: new-certificate
 spec:
   domains:
     - boutique.team3.zakare.io
 
 ---
+#The New IP is reserved testing by adding the comment
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: frontend
+  name: boutique
   annotations:
     kubernetes.io/ingress.global-static-ip-name: dev-boutique-ipv4-public
-    networking.gke.io/managed-certificates: boutique-certificate
+    networking.gke.io/managed-certificates: new-certificate
+    kubernetes.io/ingress.allow-http: "true"
+    networking.gke.io/v1beta1.FrontendConfig: my-frontend-config
   labels:
     app: frontend
 spec:
@@ -128,3 +131,11 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
+---
+apiVersion: networking.gke.io/v1beta1
+kind: FrontendConfig
+metadata:
+  name: my-frontend-config
+spec:
+  redirectToHttps:
+    enabled: true
