@@ -106,6 +106,7 @@ metadata:
     kubernetes.io/ingress.global-static-ip-name: dev-boutique-ipv4-public
     networking.gke.io/managed-certificates: new-certificate
     kubernetes.io/ingress.allow-http: "true"
+    networking.gke.io/v1beta1.FrontendConfig: my-frontend-config
   labels:
     app: frontend
 spec:
