@@ -54,14 +54,20 @@ build:
     context: src/adservice
   
 deploy:
-  helm:
-    releases:
-    - name: dev-chart
-      chartPath: ./dev-chart
-      valuesFiles: [./dev-chart/values.yaml]
-      namespace: dev
-      imageStrategy:
-        helm: {}
+  kubectl:
+    manifests:
+    - ./kubernetes-manifests/adservice.yaml
+    - ./kubernetes-manifests/cartservice.yaml
+    - ./kubernetes-manifests/checkoutservice.yaml
+    - ./kubernetes-manifests/currencyservice.yaml
+    - ./kubernetes-manifests/emailservice.yaml
+    - ./kubernetes-manifests/frontend.yaml
+    - ./kubernetes-manifests/paymentservice.yaml
+    - ./kubernetes-manifests/productcatalogservice.yaml
+    - ./kubernetes-manifests/recommendationservice.yaml
+    - ./kubernetes-manifests/shippingservice.yaml
+    - ./kubernetes-manifests/backend-config.yaml
+    - ./kubernetes-manifests/redis.yaml
 profiles:
 # "gcb" profile allows building and pushing the images
 # on Google Container Builder without requiring docker
