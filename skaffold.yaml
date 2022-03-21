@@ -91,4 +91,3 @@ profiles:
     - op: replace
       path: /build/artifacts/7/docker/dockerfile
       value: Dockerfile.debug
-
