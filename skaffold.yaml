@@ -18,9 +18,7 @@ metadata:
   name: app
 build:
   tagPolicy:
-    gitCommit:
-      variant: AbbrevTreeSha
-      prefix: BTQ
+    gitCommit: {}
   local:
     tryImportMissing: true
     concurrency: 0
