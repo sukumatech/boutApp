@@ -106,7 +106,6 @@ build:
   tagPolicy:
     gitCommit:
       variant: AbbrevTreeSha
-      prefix: BTQ-
   artifacts:
   - image: loadgenerator
     context: src/loadgenerator

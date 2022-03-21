@@ -59,7 +59,7 @@ jobs:
       - name: Install skaffold
         uses: hiberbee/github-action-skaffold@1.12.0
         with:
-          namespace: 'prod'
+          namespace: 'dev'
 
       - name: Build + Deploy application to GKE
         timeout-minutes: 30
