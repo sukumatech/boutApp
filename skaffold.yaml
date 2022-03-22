@@ -18,7 +18,9 @@ metadata:
   name: app
 build:
   tagPolicy:
-    gitCommit: {}
+    gitCommit :
+      variant: AbbrevTreeSha
+
   local:
     tryImportMissing: true
     concurrency: 0
