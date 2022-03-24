@@ -20,7 +20,7 @@ build:
   tagPolicy:
     gitCommit :
       variant: AbbrevTreeSha
-
+#      prefix: BTQ
   local:
     tryImportMissing: true
     concurrency: 0
