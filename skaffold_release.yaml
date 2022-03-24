@@ -61,7 +61,6 @@ deploy:
     - ./kubernetes-manifests/checkoutservice.yaml
     - ./kubernetes-manifests/currencyservice.yaml
     - ./kubernetes-manifests/emailservice.yaml
-    - ./kubernetes-manifests/frontend_release.yaml
     - ./kubernetes-manifests/paymentservice.yaml
     - ./kubernetes-manifests/productcatalogservice.yaml
     - ./kubernetes-manifests/recommendationservice.yaml
