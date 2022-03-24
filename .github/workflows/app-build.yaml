@@ -45,15 +45,15 @@ jobs:
       - name: Install skaffold
         uses: hiberbee/github-action-skaffold@1.12.0
         with:
-          namespace: 'prod'
+          namespace: 'stag'
 
       - name: Build + Deploy application to GKE
         timeout-minutes: 30
         run: |
           echo Deploying application
           skaffold config set --global local-cluster false
-          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT --namespace=prod
+          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT --namespace=stag
       - name: get pods
         timeout-minutes: 20
         run: |
-          kubectl get pods --namespace=prod
+          kubectl get pods --namespace=stag

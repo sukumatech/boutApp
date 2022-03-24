@@ -66,7 +66,7 @@ jobs:
         run: |
           echo Deploying application
           skaffold config set --global local-cluster false
-          skaffold run -f=skaffold.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT --namespace=prod
+          skaffold run -f=skaffold_release.yaml --default-repo=gcr.io/$GOOGLE_CLOUD_PROJECT --namespace=prod
       - name: get pods
         timeout-minutes: 20
         run: |
