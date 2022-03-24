@@ -4,6 +4,7 @@ name: Release
 # Run on every commit tag which begins with "v" (e.g., "v0.1.4")
 on:
   push:
+    branches: [prod]
     tags:
       - "v*"
 
