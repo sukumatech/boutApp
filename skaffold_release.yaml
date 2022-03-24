@@ -18,7 +18,7 @@ metadata:
   name: app
 build:
   tagPolicy:
-    gitCommit:
+    gitCommit :
       variant: AbbrevTreeSha
 #      prefix: BTQ
   local:
@@ -61,12 +61,13 @@ deploy:
     - ./kubernetes-manifests/checkoutservice.yaml
     - ./kubernetes-manifests/currencyservice.yaml
     - ./kubernetes-manifests/emailservice.yaml
-    - ./kubernetes-manifests/frontend.yaml
+    - ./kubernetes-manifests/frontend_release.yaml
     - ./kubernetes-manifests/paymentservice.yaml
     - ./kubernetes-manifests/productcatalogservice.yaml
     - ./kubernetes-manifests/recommendationservice.yaml
     - ./kubernetes-manifests/shippingservice.yaml
-    - ./kubernetes-manifests/redis.yaml
+    - ./.github/app-release/frontend.yaml
+    - ./.github/app-release/backend-config.yaml
 profiles:
 # "gcb" profile allows building and pushing the images
 # on Google Container Builder without requiring docker
@@ -93,23 +94,3 @@ profiles:
     - op: replace
       path: /build/artifacts/7/docker/dockerfile
       value: Dockerfile.debug
-
----
-
-apiVersion: skaffold/v2beta18
-kind: Config
-metadata:
-  name: loadgenerator
-requires:
-  - configs: [app]
-build:
-  tagPolicy:
-    gitCommit:
-      variant: AbbrevTreeSha
-  artifacts:
-  - image: loadgenerator
-    context: src/loadgenerator
-deploy:
-  kubectl:
-    manifests:
-    - ./kubernetes-manifests/loadgenerator.yaml
